@@ -11,9 +11,13 @@ const fs = require("fs");
 app.get('/api/data',(req,res)=>{
     fs.readFile(dataPath, 'utf8', (err, data) => {
         if (err)  throw err
+        arr1 = JSON.parse(data)
+        console.log(arr1.slice(-1)[0]);
+        arr1 = arr1.slice(-1)[0]
+        
         
 
-        res.send(JSON.parse(data))
+        res.send(arr1);
     })
 })
 
